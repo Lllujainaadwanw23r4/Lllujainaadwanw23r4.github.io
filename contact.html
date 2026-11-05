@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact me | SID 168300 | Lujain Kamal Udwan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="nav-brand" href="index.html">Lujain Kamal Udwan</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html" class="active" aria-current="page">Contact me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="block contact">
+      <h1>Contact me</h1>
+      <p class="lead">Have a question, an opportunity or feedback? Fill in every field below and I’ll get back to you.</p>
+
+      <!-- novalidate lets our JavaScript do the checking instead of the browser -->
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="">Choose your country</option>
+            <option>Jordan</option>
+            <option>Saudi Arabia</option>
+            <option>United Arab Emirates</option>
+            <option>Palestine</option>
+            <option>Egypt</option>
+            <option>Iraq</option>
+            <option>Lebanon</option>
+            <option>Syria</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="comments">Comments</label>
+          <textarea id="comments" name="comments" rows="5"></textarea>
+        </div>
+
+        <p id="formError" class="form-error" role="alert"></p>
+
+        <button type="submit" class="button">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Lujain Kamal Udwan. Built with HTML, CSS and JavaScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+/* ===== Color and font variables (CSS custom properties) ===== */
+:root {
+  --paper: #fbf3f1;      /* soft pink cream */
+  --surface: #ffffff;
+  --ink: #3b2620;        /* deep brown */
+  --muted: #7a5a50;      /* warm brown */
+  --accent: #a83e64;     /* rose pink */
+  --accent-ink: #ffffff;
+  --highlight: #f4b6c8;  /* light pink */
+  --line: #ead7d2;
+  --error: #b42318;
+
+  --font-head: "Archivo", "Segoe UI", Arial, sans-serif;
+  --font-body: "Literata", Georgia, "Times New Roman", serif;
+}
+
+/* Dark theme follows the visitor's system setting */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1e1512;
+    --surface: #2a1e1a;
+    --ink: #f5e6e1;
+    --muted: #cfafa6;
+    --accent: #f08fb0;
+    --accent-ink: #2a1414;
+    --highlight: #b8577a;
+    --line: #44312b;
+    --error: #ff8a7a;
+    color-scheme: dark;
+  }
+}
+
+/* ===== Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+h1,
+h2 {
+  font-family: var(--font-head);
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Visible outline for keyboard users */
+:focus-visible {
+  outline: 3px solid var(--highlight);
+  outline-offset: 3px;
+}
+
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ===== Navigation menu ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-family: var(--font-head);
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--ink);
+  background-color: var(--paper);
+}
+
+.nav-links a.active {
+  color: var(--accent-ink);
+  background-color: var(--accent);
+}
+
+/* ===== Intro (the one bold element) ===== */
+.intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 4rem 0 3rem;
+}
+
+.intro h1 {
+  font-size: clamp(2.6rem, 7vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.role {
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.level {
+  color: var(--muted);
+  margin: 0.25rem 0 1.5rem;
+}
+
+.intro-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+/* ===== Buttons ===== */
+.button {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.7rem 1.4rem;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  background-color: var(--accent);
+  color: var(--accent-ink);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button-quiet {
+  background-color: transparent;
+  color: var(--accent);
+}
+
+/* ===== Content blocks ===== */
+.block {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.block p {
+  max-width: 65ch;
+}
+
+/* Soft skills shown as tags */
+.skills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skills li {
+  font-family: var(--font-head);
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+}
+
+/* ===== Table ===== */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--surface);
+  min-width: 34rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  font-family: var(--font-head);
+  font-weight: 700;
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--paper);
+}
+
+tbody tr:hover {
+  background-color: var(--line);
+}
+
+td:first-child {
+  font-weight: 600;
+}
+
+/* Future goals paragraph */
+.future p {
+  border-left: 4px solid var(--highlight);
+  padding-left: 1.25rem;
+}
+
+/* ===== Contact form ===== */
+.contact {
+  border-top: none;
+  padding-top: 3.5rem;
+}
+
+.contact h1 {
+  font-size: clamp(2.2rem, 6vw, 3.25rem);
+  font-weight: 800;
+}
+
+.lead {
+  color: var(--muted);
+}
+
+form {
+  max-width: 34rem;
+  margin-top: 1.5rem;
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background-color: var(--surface);
+  padding: 0.65rem 0.8rem;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.invalid {
+  border-color: var(--error);
+}
+
+.form-error {
+  color: var(--error);
+  font-weight: 600;
+  min-height: 1.5em;
+  margin: 0 0 1rem;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 2rem 1.25rem;
+  border-top: 1px solid var(--line);
+  margin-top: 2rem;
+}
+
+/* ===== Small screens ===== */
+@media (max-width: 680px) {
+  .intro {
+    padding-top: 2.5rem;
+  }
+}
+
+/* Respect visitors who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .button,
+  .nav-links a {
+    transition: none;
+  }
+}
